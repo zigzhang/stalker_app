@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import <BuiltIO/BuiltIO.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [Built initializeWithApiKey:@"blt2587e934070437bc"
+                         andUid:@"blt55137e247bb6b38e"];
     return YES;
 }
 							

@@ -21,6 +21,17 @@
 		8F3ED2F91801FAD800A521E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED2DB1801FAD800A521E8 /* UIKit.framework */; };
 		8F3ED3011801FAD800A521E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F3ED2FF1801FAD800A521E8 /* InfoPlist.strings */; };
 		8F3ED3031801FAD800A521E8 /* stalker_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3ED3021801FAD800A521E8 /* stalker_appTests.m */; };
+		8F3ED30E1801FB1900A521E8 /* BuiltIO.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8F3ED30C1801FB1900A521E8 /* BuiltIO.bundle */; };
+		8F3ED30F1801FB1900A521E8 /* BuiltIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED30D1801FB1900A521E8 /* BuiltIO.framework */; };
+		8F3ED3111801FB4B00A521E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED3101801FB4B00A521E8 /* QuartzCore.framework */; };
+		8F3ED3131801FB6200A521E8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED3121801FB6200A521E8 /* Security.framework */; };
+		8F3ED3151801FB6A00A521E8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED3141801FB6A00A521E8 /* SystemConfiguration.framework */; };
+		8F3ED3171801FB7000A521E8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED3161801FB7000A521E8 /* CFNetwork.framework */; };
+		8F3ED3191801FB7800A521E8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED3181801FB7800A521E8 /* CoreTelephony.framework */; };
+		8F3ED31B1801FB7D00A521E8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED31A1801FB7D00A521E8 /* CoreLocation.framework */; };
+		8F3ED31D1801FB8400A521E8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED31C1801FB8400A521E8 /* Twitter.framework */; };
+		8F3ED31F1801FB8B00A521E8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED31E1801FB8B00A521E8 /* Social.framework */; };
+		8F3ED3211801FB9300A521E8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED3201801FB9300A521E8 /* Accounts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +64,17 @@
 		8F3ED2FE1801FAD800A521E8 /* stalker_appTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "stalker_appTests-Info.plist"; sourceTree = "<group>"; };
 		8F3ED3001801FAD800A521E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8F3ED3021801FAD800A521E8 /* stalker_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stalker_appTests.m; sourceTree = "<group>"; };
+		8F3ED30C1801FB1900A521E8 /* BuiltIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BuiltIO.bundle; sourceTree = "<group>"; };
+		8F3ED30D1801FB1900A521E8 /* BuiltIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuiltIO.framework; sourceTree = "<group>"; };
+		8F3ED3101801FB4B00A521E8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8F3ED3121801FB6200A521E8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8F3ED3141801FB6A00A521E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8F3ED3161801FB7000A521E8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8F3ED3181801FB7800A521E8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8F3ED31A1801FB7D00A521E8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8F3ED31C1801FB8400A521E8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		8F3ED31E1801FB8B00A521E8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		8F3ED3201801FB9300A521E8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +82,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F3ED3211801FB9300A521E8 /* Accounts.framework in Frameworks */,
+				8F3ED31F1801FB8B00A521E8 /* Social.framework in Frameworks */,
+				8F3ED31D1801FB8400A521E8 /* Twitter.framework in Frameworks */,
+				8F3ED31B1801FB7D00A521E8 /* CoreLocation.framework in Frameworks */,
+				8F3ED3191801FB7800A521E8 /* CoreTelephony.framework in Frameworks */,
+				8F3ED3171801FB7000A521E8 /* CFNetwork.framework in Frameworks */,
+				8F3ED3151801FB6A00A521E8 /* SystemConfiguration.framework in Frameworks */,
+				8F3ED3131801FB6200A521E8 /* Security.framework in Frameworks */,
 				8F3ED2DA1801FAD800A521E8 /* CoreGraphics.framework in Frameworks */,
+				8F3ED3111801FB4B00A521E8 /* QuartzCore.framework in Frameworks */,
+				8F3ED30F1801FB1900A521E8 /* BuiltIO.framework in Frameworks */,
 				8F3ED2DC1801FAD800A521E8 /* UIKit.framework in Frameworks */,
 				8F3ED2D81801FAD800A521E8 /* Foundation.framework in Frameworks */,
 			);
@@ -101,6 +133,15 @@
 		8F3ED2D61801FAD800A521E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F3ED3201801FB9300A521E8 /* Accounts.framework */,
+				8F3ED31E1801FB8B00A521E8 /* Social.framework */,
+				8F3ED31C1801FB8400A521E8 /* Twitter.framework */,
+				8F3ED31A1801FB7D00A521E8 /* CoreLocation.framework */,
+				8F3ED3181801FB7800A521E8 /* CoreTelephony.framework */,
+				8F3ED3161801FB7000A521E8 /* CFNetwork.framework */,
+				8F3ED3141801FB6A00A521E8 /* SystemConfiguration.framework */,
+				8F3ED3121801FB6200A521E8 /* Security.framework */,
+				8F3ED3101801FB4B00A521E8 /* QuartzCore.framework */,
 				8F3ED2D71801FAD800A521E8 /* Foundation.framework */,
 				8F3ED2D91801FAD800A521E8 /* CoreGraphics.framework */,
 				8F3ED2DB1801FAD800A521E8 /* UIKit.framework */,
@@ -114,6 +155,8 @@
 			children = (
 				8F3ED2E61801FAD800A521E8 /* AppDelegate.h */,
 				8F3ED2E71801FAD800A521E8 /* AppDelegate.m */,
+				8F3ED30C1801FB1900A521E8 /* BuiltIO.bundle */,
+				8F3ED30D1801FB1900A521E8 /* BuiltIO.framework */,
 				8F3ED2E91801FAD800A521E8 /* Main.storyboard */,
 				8F3ED2EC1801FAD800A521E8 /* ViewController.h */,
 				8F3ED2ED1801FAD800A521E8 /* ViewController.m */,
@@ -230,6 +273,7 @@
 			files = (
 				8F3ED2F01801FAD800A521E8 /* Images.xcassets in Resources */,
 				8F3ED2E21801FAD800A521E8 /* InfoPlist.strings in Resources */,
+				8F3ED30E1801FB1900A521E8 /* BuiltIO.bundle in Resources */,
 				8F3ED2EB1801FAD800A521E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,9 +422,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zigzhang/Code/mobile_app/stalker_app/stalker_app,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stalker_app/stalker_app-Prefix.pch";
 				INFOPLIST_FILE = "stalker_app/stalker_app-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -391,9 +440,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zigzhang/Code/mobile_app/stalker_app/stalker_app,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stalker_app/stalker_app-Prefix.pch";
 				INFOPLIST_FILE = "stalker_app/stalker_app-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
