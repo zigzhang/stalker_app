@@ -17,6 +17,30 @@
     
     [Built initializeWithApiKey:@"blt2587e934070437bc"
                          andUid:@"blt55137e247bb6b38e"];
+    
+    BuiltUILoginController *login = [[BuiltUILoginController alloc]initWithNibName:nil bundle:nil];
+    
+    //set the login delegate to be notified when user logs in
+    [login setDelegate:self];
+    
+    //set google app setting delegate to set the app client id and secret of your google app
+    [login setGoogleAppSettingDelegate:self];
+    
+    //set twitter app setting delegate to set the consumer key and secret of your twitter app
+    [login setTwitterAppSettingDelegate:self];
+    
+    //select the login fields that will be displayed to the user
+    login.fields = BuiltLoginFieldUsernameAndPassword | BuiltLoginFieldLogin | BuiltLoginFieldGoogle | BuiltLoginFieldSignUp | BuiltLoginFieldTwitter;
+    
+    //initialize the navigation controller with the login controller
+    self.nc = [[UINavigationController alloc]initWithRootViewController:login];
+    
+    [self.nc.navigationBar setTintColor:[UIColor darkGrayColor]];
+    [self.nc setNavigationBarHidden:YES];
+    
+    //set the root view controller
+    [self.window setRootViewController:self.nc];
+    
     return YES;
 }
 							
