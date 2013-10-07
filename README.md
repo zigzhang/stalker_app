@@ -3,7 +3,7 @@ stalker_app
 
 Using Built.io
 
-This simple app allow you to:
+This simple app allows you to:
 - Sign-up login using Built.io
 - Update User's location at each connection using Buil.io
 - Display a map centered around your current location
