@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38D3F56F1802403700BDCE83 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D3F56E1802403700BDCE83 /* MapKit.framework */; };
 		8F3ED2D81801FAD800A521E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED2D71801FAD800A521E8 /* Foundation.framework */; };
 		8F3ED2DA1801FAD800A521E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED2D91801FAD800A521E8 /* CoreGraphics.framework */; };
 		8F3ED2DC1801FAD800A521E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3ED2DB1801FAD800A521E8 /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38D3F56E1802403700BDCE83 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8F3ED2D41801FAD800A521E8 /* stalker_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stalker_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F3ED2D71801FAD800A521E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8F3ED2D91801FAD800A521E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D3F56F1802403700BDCE83 /* MapKit.framework in Frameworks */,
 				8F3ED3211801FB9300A521E8 /* Accounts.framework in Frameworks */,
 				8F3ED31F1801FB8B00A521E8 /* Social.framework in Frameworks */,
 				8F3ED31D1801FB8400A521E8 /* Twitter.framework in Frameworks */,
@@ -133,6 +136,7 @@
 		8F3ED2D61801FAD800A521E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38D3F56E1802403700BDCE83 /* MapKit.framework */,
 				8F3ED3201801FB9300A521E8 /* Accounts.framework */,
 				8F3ED31E1801FB8B00A521E8 /* Social.framework */,
 				8F3ED31C1801FB8400A521E8 /* Twitter.framework */,

@@ -17,6 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    MKMapView *map = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:map];
 
 }
 
@@ -24,6 +26,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadMap
+{
 }
 
 @end
