@@ -82,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F3ED30F1801FB1900A521E8 /* BuiltIO.framework in Frameworks */,
 				8F3ED3211801FB9300A521E8 /* Accounts.framework in Frameworks */,
 				8F3ED31F1801FB8B00A521E8 /* Social.framework in Frameworks */,
 				8F3ED31D1801FB8400A521E8 /* Twitter.framework in Frameworks */,
@@ -95,6 +94,7 @@
 				8F3ED3111801FB4B00A521E8 /* QuartzCore.framework in Frameworks */,
 				8F3ED2DC1801FAD800A521E8 /* UIKit.framework in Frameworks */,
 				8F3ED2D81801FAD800A521E8 /* Foundation.framework in Frameworks */,
+				8F3ED30F1801FB1900A521E8 /* BuiltIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +155,8 @@
 			children = (
 				8F3ED2E61801FAD800A521E8 /* AppDelegate.h */,
 				8F3ED2E71801FAD800A521E8 /* AppDelegate.m */,
-				8F3ED30C1801FB1900A521E8 /* BuiltIO.bundle */,
 				8F3ED30D1801FB1900A521E8 /* BuiltIO.framework */,
+				8F3ED30C1801FB1900A521E8 /* BuiltIO.bundle */,
 				8F3ED2E91801FAD800A521E8 /* Main.storyboard */,
 				8F3ED2EC1801FAD800A521E8 /* ViewController.h */,
 				8F3ED2ED1801FAD800A521E8 /* ViewController.m */,
@@ -293,9 +293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F3ED2E41801FAD800A521E8 /* main.m in Sources */,
 				8F3ED2EE1801FAD800A521E8 /* ViewController.m in Sources */,
 				8F3ED2E81801FAD800A521E8 /* AppDelegate.m in Sources */,
-				8F3ED2E41801FAD800A521E8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +425,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zigzhang/Code/mobile_app/stalker_app/stalker_app,
+					/Users/fwoom/Desktop/CODE/stalker_app/stalker_app,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stalker_app/stalker_app-Prefix.pch";
@@ -443,6 +444,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zigzhang/Code/mobile_app/stalker_app/stalker_app,
+					/Users/fwoom/Desktop/CODE/stalker_app/stalker_app,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stalker_app/stalker_app-Prefix.pch";
@@ -514,6 +516,7 @@
 				8F3ED3081801FAD800A521E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F3ED3091801FAD800A521E8 /* Build configuration list for PBXNativeTarget "stalker_appTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +525,7 @@
 				8F3ED30B1801FAD800A521E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
