@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 #import <BuiltIO/BuiltIO.h>
+#import "ViewController.h"
+
+@interface AppDelegate ()<BuiltUIGoogleAppSettingDelegate, BuiltUILoginDelegate, BuiltUITwitterAppSettingDelegate>
+//@property (nonatomic, strong)UINavigationController *nvc;
+@end
 
 @implementation AppDelegate
 
@@ -42,8 +47,55 @@
     [self.window setRootViewController:self.nc];
     
     return YES;
+    
 }
-							
+
+#pragma mark
+#pragma mark GoogleAppSettingDelegate
+
+- (NSString*)googleAppClientID {
+    return @"client_id_here";
+}
+
+- (NSString*)googleAppClientSecret {
+    return @"secret_here";
+}
+
+
+#pragma mark
+#pragma mark TwitterAppSettingDelegate
+
+-(NSString *)consumerKey{
+    return @"twitter_consumer_key_here";
+}
+
+-(NSString *)consumerSecret{
+    return @"twitter_consumer_secret_here";
+}
+
+
+#pragma mark
+#pragma mark BuiltUILoginDelegate
+
+-(void)loginSuccessWithUser:(BuiltUser *)user{
+    //save the user session
+    [user saveSession];
+    [self showNextPage];
+}
+
+- (void)showNextPage{
+    ViewController *maps = [[ViewController alloc] init];
+    //self.nc = [[UINavigationController alloc]initWithRootViewController:maps];
+    //[self.nc.navigationBar setTintColor:[UIColor darkGrayColor]];
+    //[self.nc setNavigationBarHidden:YES];
+    //[self.window setRootViewController:self.nc];
+    [self.window setRootViewController:maps];
+}
+
+-(void)loginFailedWithError:(NSError *)error{
+    NSLog(@"error %@",error.userInfo);
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

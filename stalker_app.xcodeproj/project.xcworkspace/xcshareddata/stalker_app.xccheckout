@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>31310431-759A-4649-8BEB-825955E71389</string>
+	<key>IDESourceControlProjectName</key>
+	<string>stalker_app</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8347E76D-4ED5-4D5D-9A61-D1D395C44B6E</key>
+		<string>git://github.com/zigzhang/stalker_app</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>stalker_app.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8347E76D-4ED5-4D5D-9A61-D1D395C44B6E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>git://github.com/zigzhang/stalker_app</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8347E76D-4ED5-4D5D-9A61-D1D395C44B6E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8347E76D-4ED5-4D5D-9A61-D1D395C44B6E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>stalker_app</string>
+		</dict>
+	</array>
+</dict>
+</plist>
