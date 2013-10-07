@@ -70,7 +70,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer
 - (void)tapGestureHandler:(UITapGestureRecognizer *)tgr
 {
     // set Touch Radius
-    double radius = 10000;
+    double radius = 100;
     
     // get coordinates when we tap the map
     CGPoint touchPoint = [tgr locationInView:map];

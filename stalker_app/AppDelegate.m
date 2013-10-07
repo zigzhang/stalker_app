@@ -12,6 +12,7 @@
 
 @interface AppDelegate ()<BuiltUIGoogleAppSettingDelegate, BuiltUILoginDelegate, BuiltUITwitterAppSettingDelegate>
 //@property (nonatomic, strong)UINavigationController *nvc;
+@property (nonatomic, readwrite) UIImageView *logoImageView;
 @end
 
 @implementation AppDelegate
@@ -27,6 +28,9 @@
     
     //set the login delegate to be notified when user logs in
     [login setDelegate:self];
+    
+    //sets the logo image
+    [login.logoImageView setImage:[UIImage imageNamed:@"stalkio.png"]];
     
     //set google app setting delegate to set the app client id and secret of your google app
     [login setGoogleAppSettingDelegate:self];
