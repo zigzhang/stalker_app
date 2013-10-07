@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <BuiltIO/BuiltIO.h>
+
 
 @interface ViewController ()
 
@@ -18,6 +20,7 @@
 {
     [super viewDidLoad];
     MKMapView *map = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    [self currentLocation];
     [self.view addSubview:map];
 
 }
@@ -28,8 +31,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void)loadMap
 {
 }
+
+- (void)currentLocation
+{
+    BuiltLocation *location = [BuiltLocation alloc];
+    double myLat = location.latitude;
+    double myLong = location.longitude;
+    
+    BuiltUser *user = [BuiltUser currentUser];
+    
+    BuiltObject *obj = [BuiltObject objectWithClassUID:@"location"];
+    [obj setObject:[NSNumber numberWithDouble:myLat] forKey:@"latitude"];
+    [obj setObject:user.uid forKey:@"user_id"];
+}
+
+
 
 @end
