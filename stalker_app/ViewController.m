@@ -38,15 +38,26 @@
 
 - (void)currentLocation
 {
-    BuiltLocation *location = [BuiltLocation alloc];
-    double myLat = location.latitude;
-    double myLong = location.longitude;
+    [BuiltLocation currentLocationOnSuccess:^(BuiltLocation *currentLocation){
+        BuiltObject *obj = [BuiltObject objectWithClassUID:@"built_io_application_user"];
+        BuiltUser *user = [BuiltUser currentUser];
+        [obj setUid:user.uid];
+        [obj setLocation:currentLocation];
+        [obj saveOnSuccess:^{
+            NSLog(@"success");
+            // object is created successfully
+        } onError:^(NSError *error) {
+            // there was an error in creating the object
+            // error.userinfo contains more details regarding the same
+            NSLog(@"error1: %@", error);
+        }];
+    } onError:^(NSError *error) {
+        //error
+        NSLog(@"error2: %@", error);
+
+    }];
     
-    BuiltUser *user = [BuiltUser currentUser];
-    
-    BuiltObject *obj = [BuiltObject objectWithClassUID:@"location"];
-    [obj setObject:[NSNumber numberWithDouble:myLat] forKey:@"latitude"];
-    [obj setObject:user.uid forKey:@"user_id"];
+
 }
 
 
