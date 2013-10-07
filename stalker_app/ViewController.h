@@ -10,8 +10,9 @@
 #import <MapKit/MapKit.h>
 
 
-@interface ViewController : UIViewController <MKMapViewDelegate, UIGestureRecognizerDelegate> {
-   MKMapView *map;
+@interface ViewController : UIViewController <MKMapViewDelegate> {
+    NSMutableDictionary *allLocations;
+    MKMapView *map;
 }
 
 

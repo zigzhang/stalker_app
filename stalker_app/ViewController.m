@@ -19,27 +19,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // initialize our mapview and add it to the current view
     map = [[MKMapView alloc] initWithFrame:self.view.bounds];
     map.showsUserLocation = YES;
     map.delegate = self;
     [self.view addSubview:map];
+    
+    // get our current location w/built.io
     [self currentLocation];
-
-    /*
-    //Add a touch recognizer to our mapview
-    NSLog(@"1");
+    
+    // Add a tap recognizer to our map
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self action:@selector(tapGestureHandler:)];
-    NSLog(@"2");
-
     tgr.delegate = self;  //also add <UIGestureRecognizerDelegate> to @interface
-    NSLog(@"3");
-
     [map addGestureRecognizer:tgr];
-    NSLog(@"4");*/
 
 }
 
+
+// Centers the mapview around our current location and zooms in
 - (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation {
     MKCoordinateRegion region;
     MKCoordinateSpan span;
@@ -59,13 +58,116 @@
     // Dispose of any resources that can be recreated.
 }
 
+// ...? Important for gesture recognizer
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer
+                         :(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
 
+// What happens on a tap
+- (void)tapGestureHandler:(UITapGestureRecognizer *)tgr
+{
+    // set Touch Radius
+    double radius = 10000;
+    
+    // get coordinates when we tap the map
+    CGPoint touchPoint = [tgr locationInView:map];
+    CLLocationCoordinate2D touchMapCoordinate = [map convertPoint:touchPoint toCoordinateFromView:map];
+
+    // query built.io based on the location
+    BuiltLocation *loc = [BuiltLocation locationWithLongitude:touchMapCoordinate.longitude
+                                                  andLatitude:touchMapCoordinate.latitude];
+    BuiltQuery *query = [BuiltQuery queryWithClassUID:@"built_io_application_user"];
+    [query nearLocation:loc withRadius:radius];
+
+    // remove all pins and overlays
+    [map removeAnnotations:map.annotations];
+    [map removeOverlays:map.overlays];
+    
+    // set circle overlay
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:touchMapCoordinate radius:radius];
+    [map addOverlay:circle];
+
+    
+    // execute query
+    [query exec:^(QueryResult *result, ResponseType type) {
+        // the query has executed successfully.
+        // [result getResult] will contain a list of objects that satisfy the conditions
+        
+        // show pins using query result
+        [self updatePoints:[result getResult]];
+        
+        } onError:^(NSError *error, ResponseType type) {
+            // query execution failed.
+            // error.userinfo contains more details regarding the same
+            NSLog(@"%@", error);
+    }];
+
+
+    NSLog(@"tapGestureHandler: touchMapCoordinate = %f,%f",
+              touchMapCoordinate.latitude, touchMapCoordinate.longitude);
+}
+
+//draw Circle overlays
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay{
+    MKCircleRenderer *circleRenderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+    circleRenderer.strokeColor =[UIColor blackColor];
+    circleRenderer.fillColor =[UIColor redColor];
+    circleRenderer.alpha = 0.3;
+    return circleRenderer;
+}
+
+
+
+- (void)updatePoints: (NSArray *) mapPoints
+{
+    // iterate thru array of results and extract location data into pins
+    for (id obj in mapPoints) {
+        NSString *uid = [obj objectForKey:@"uid"];
+        NSString *username = [obj objectForKey:@"username"];
+        NSArray *loc = [obj objectForKey:@"__loc"];
+        NSLog(@"username: %@", username);
+        NSLog(@"loc: %@", loc);
+
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = [loc[1] doubleValue];
+        coordinate.longitude = [loc[0] doubleValue];
+        
+        
+        // put pins into NSDictionary<uid, MKAnnotationPin> form
+        id value = [allLocations objectForKey:uid];
+        if (value == nil) {
+            // if pin isn't in dictionary, draw the pin and add it
+            
+            MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+            
+            [point setCoordinate:coordinate];
+            [point setTitle:username];
+            
+            [allLocations setObject:point forKey:uid];
+            [map addAnnotation:point];
+        } else {
+            // if pin is in dictionary, edit the location coord of that pin
+            
+            [((MKPointAnnotation *) value) setCoordinate:coordinate];
+        }
+    }
+
+}
+
+
+// store your current location in database (user)
 - (void)currentLocation
 {
     [BuiltLocation currentLocationOnSuccess:^(BuiltLocation *currentLocation){
+        // get the current user object
         BuiltObject *obj = [BuiltObject objectWithClassUID:@"built_io_application_user"];
         BuiltUser *user = [BuiltUser currentUser];
         [obj setUid:user.uid];
+        
+        // set current location on the current user
         [obj setLocation:currentLocation];
         [obj saveOnSuccess:^{
             NSLog(@"success");
@@ -83,38 +185,6 @@
 }
 
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-shouldRecognizeSimultaneouslyWithGestureRecognizer
-                         :(UIGestureRecognizer *)otherGestureRecognizer
-{
-    return YES;
-}
-
-- (void)tapGestureHandler:(UITapGestureRecognizer *)tgr
-{
-    CGPoint touchPoint = [tgr locationInView:map];
-    
-    CLLocationCoordinate2D touchMapCoordinate
-    = [map convertPoint:touchPoint toCoordinateFromView:map];
-    
-    BuiltLocation *loc = [BuiltLocation locationWithLongitude:touchMapCoordinate.longitude
-                                                  andLatitude:touchMapCoordinate.latitude];
-    BuiltQuery *query = [BuiltQuery queryWithClassUID:@"built_io_application_user"];
-    [query nearLocation:loc withRadius:100];
-    
-    [query exec:^(QueryResult *result, ResponseType type) {
-        // the query has executed successfully.
-        // [result getResult] will contain a list of objects that satisfy the conditions
-        NSLog(@"test");
-    } onError:^(NSError *error, ResponseType type) {
-        // query execution failed.
-        // error.userinfo contains more details regarding the same
-        NSLog(@"%@", error);
-    }];
-    
-    NSLog(@"tapGestureHandler: touchMapCoordinate = %f,%f",
-          touchMapCoordinate.latitude, touchMapCoordinate.longitude);
-}
 
 
 
