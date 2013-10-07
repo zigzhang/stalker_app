@@ -19,11 +19,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    MKMapView *map = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    map = [[MKMapView alloc] initWithFrame:self.view.bounds];
     map.showsUserLocation = YES;
     map.delegate = self;
     [self.view addSubview:map];
     [self currentLocation];
+
+    /*
+    //Add a touch recognizer to our mapview
+    NSLog(@"1");
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(tapGestureHandler:)];
+    NSLog(@"2");
+
+    tgr.delegate = self;  //also add <UIGestureRecognizerDelegate> to @interface
+    NSLog(@"3");
+
+    [map addGestureRecognizer:tgr];
+    NSLog(@"4");*/
+
 }
 
 - (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation {
@@ -46,17 +60,6 @@
 }
 
 
-- (void)loadMap
-{
-}
-
-//-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    UITouch *touch = [[event allTouches] anyObject];
-//    CGPoint location = [touch locationInView:touch.view];
-//    MKCircle *circleWithCenterCoordinate = [MKCircle circleWithCenterCoordinate:location radius:0.0];
-//}
-
 - (void)currentLocation
 {
     [BuiltLocation currentLocationOnSuccess:^(BuiltLocation *currentLocation){
@@ -70,13 +73,47 @@
         } onError:^(NSError *error) {
             // there was an error in creating the object
             // error.userinfo contains more details regarding the same
-            NSLog(@"error1: %@", error);
+            NSLog(@"current_error1: %@", error);
         }];
     } onError:^(NSError *error) {
         //error
-        NSLog(@"error2: %@", error);
+        NSLog(@"current_error2: %@", error);
 
     }];
+}
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer
+                         :(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (void)tapGestureHandler:(UITapGestureRecognizer *)tgr
+{
+    CGPoint touchPoint = [tgr locationInView:map];
+    
+    CLLocationCoordinate2D touchMapCoordinate
+    = [map convertPoint:touchPoint toCoordinateFromView:map];
+    
+    BuiltLocation *loc = [BuiltLocation locationWithLongitude:touchMapCoordinate.longitude
+                                                  andLatitude:touchMapCoordinate.latitude];
+    BuiltQuery *query = [BuiltQuery queryWithClassUID:@"built_io_application_user"];
+    [query nearLocation:loc withRadius:100];
+    
+    [query exec:^(QueryResult *result, ResponseType type) {
+        // the query has executed successfully.
+        // [result getResult] will contain a list of objects that satisfy the conditions
+        NSLog(@"test");
+    } onError:^(NSError *error, ResponseType type) {
+        // query execution failed.
+        // error.userinfo contains more details regarding the same
+        NSLog(@"%@", error);
+    }];
+    
+    NSLog(@"tapGestureHandler: touchMapCoordinate = %f,%f",
+          touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 }
 
 
