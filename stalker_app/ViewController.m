@@ -20,9 +20,23 @@
 {
     [super viewDidLoad];
     MKMapView *map = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    [self currentLocation];
+    map.showsUserLocation = YES;
+    map.delegate = self;
     [self.view addSubview:map];
+    [self currentLocation];
+}
 
+- (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation {
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta = 0.005;
+    span.longitudeDelta = 0.005;
+    CLLocationCoordinate2D location;
+    location.latitude = aUserLocation.coordinate.latitude;
+    location.longitude = aUserLocation.coordinate.longitude;
+    region.span = span;
+    region.center = location;
+    [aMapView setRegion:region animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,6 +49,13 @@
 - (void)loadMap
 {
 }
+
+//-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch *touch = [[event allTouches] anyObject];
+//    CGPoint location = [touch locationInView:touch.view];
+//    MKCircle *circleWithCenterCoordinate = [MKCircle circleWithCenterCoordinate:location radius:0.0];
+//}
 
 - (void)currentLocation
 {
@@ -56,8 +77,6 @@
         NSLog(@"error2: %@", error);
 
     }];
-    
-
 }
 
 
